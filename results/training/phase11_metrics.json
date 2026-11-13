@@ -1,0 +1,16 @@
+{
+    "Random Forest": {
+        "accuracy": 0.9999887869749501,
+        "precision_macro": 0.9999961426896253,
+        "recall_macro": 0.9997172745264349,
+        "f1_macro": 0.999856648621166,
+        "training_time_seconds": 101.11
+    },
+    "Isolation Forest": {
+        "accuracy": 0.8935435401762688,
+        "precision_attack": 0.0,
+        "recall_attack": 0.0,
+        "f1_attack": 0.0,
+        "training_time_seconds": 1.06
+    }
+}

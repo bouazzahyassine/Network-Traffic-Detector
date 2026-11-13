@@ -1,0 +1,5 @@
+Total rows: 445909
+Exact duplicates: 24065
+Repeated feature groups: 8333
+Conflicting feature groups: 0
+Rows in conflicting groups: 0

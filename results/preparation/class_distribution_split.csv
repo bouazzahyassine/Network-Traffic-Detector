@@ -1,0 +1,4 @@
+Label,Training,Testing,Total
+BENIGN,345659,86415,432074
+FTP-Patator,6350,1588,7938
+SSH-Patator,4718,1179,5897

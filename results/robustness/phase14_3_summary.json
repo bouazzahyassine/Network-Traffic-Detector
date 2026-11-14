@@ -1,0 +1,128 @@
+{
+    "phase": "14.3",
+    "title": "Group-Aware Cross-Validation for Random Forest",
+    "dataset": "CIC-IDS2017 Tuesday Working Hours",
+    "algorithm": "Random Forest",
+    "split_method": "StratifiedGroupKFold",
+    "n_splits": 5,
+    "random_state": 42,
+    "training_rows": 356727,
+    "classes": [
+        "BENIGN",
+        "FTP-Patator",
+        "SSH-Patator"
+    ],
+    "folds": [
+        {
+            "fold": 1,
+            "fit_rows": 285381,
+            "validation_rows": 71346,
+            "fit_unique_groups": 269857,
+            "validation_unique_groups": 67593,
+            "overlapping_groups": 0,
+            "retained_features": 68,
+            "training_time_seconds": 84.21,
+            "accuracy": 0.9998878703781572,
+            "precision_macro": 0.9999614309131232,
+            "recall_macro": 0.997447061702033,
+            "f1_macro": 0.9987014355933456
+        },
+        {
+            "fold": 2,
+            "fit_rows": 285381,
+            "validation_rows": 71346,
+            "fit_unique_groups": 269853,
+            "validation_unique_groups": 67597,
+            "overlapping_groups": 0,
+            "retained_features": 68,
+            "training_time_seconds": 97.69,
+            "accuracy": 0.999957951391809,
+            "precision_macro": 0.9999855355463948,
+            "recall_macro": 0.9990313181191334,
+            "f1_macro": 0.9995080005376713
+        },
+        {
+            "fold": 3,
+            "fit_rows": 285382,
+            "validation_rows": 71345,
+            "fit_unique_groups": 269950,
+            "validation_unique_groups": 67500,
+            "overlapping_groups": 0,
+            "retained_features": 68,
+            "training_time_seconds": 98.288,
+            "accuracy": 0.999971967201626,
+            "precision_macro": 0.9999903568914474,
+            "recall_macro": 0.9993840510127114,
+            "f1_macro": 0.9996870584334675
+        },
+        {
+            "fold": 4,
+            "fit_rows": 285382,
+            "validation_rows": 71345,
+            "fit_unique_groups": 269852,
+            "validation_unique_groups": 67598,
+            "overlapping_groups": 0,
+            "retained_features": 68,
+            "training_time_seconds": 95.965,
+            "accuracy": 0.999971967201626,
+            "precision_macro": 0.9999903568914474,
+            "recall_macro": 0.9992930364086249,
+            "f1_macro": 0.9996413213342255
+        },
+        {
+            "fold": 5,
+            "fit_rows": 285382,
+            "validation_rows": 71345,
+            "fit_unique_groups": 270288,
+            "validation_unique_groups": 67162,
+            "overlapping_groups": 0,
+            "retained_features": 68,
+            "training_time_seconds": 72.299,
+            "accuracy": 0.9999859836008129,
+            "precision_macro": 0.9999951783062354,
+            "recall_macro": 0.9996468926553672,
+            "f1_macro": 0.9998209419002103
+        }
+    ],
+    "mean_metrics": {
+        "accuracy": 0.9999551479548062,
+        "precision_macro": 0.9999845717097298,
+        "recall_macro": 0.9989604719795739,
+        "f1_macro": 0.999471751559784
+    },
+    "std_metrics": {
+        "accuracy": 3.8893260247157105e-05,
+        "precision_macro": 1.3377798708598948e-05,
+        "recall_macro": 0.0008741598087016407,
+        "f1_macro": 0.0004449004182551379
+    },
+    "aggregate_confusion_matrix": {
+        "labels": [
+            "BENIGN",
+            "FTP-Patator",
+            "SSH-Patator"
+        ],
+        "matrix": [
+            [
+                345659,
+                0,
+                0
+            ],
+            [
+                5,
+                6345,
+                0
+            ],
+            [
+                11,
+                0,
+                4707
+            ]
+        ]
+    },
+    "integrity": {
+        "all_folds_group_separated": true,
+        "test_set_used": false,
+        "preprocessing_fitted_inside_each_fold": true
+    }
+}

@@ -1,0 +1,235 @@
+======================================================================
+PHASE 14.3 - GROUP-AWARE CROSS-VALIDATION FOR RANDOM FOREST
+======================================================================
+
+[1] Loading datasets...
+Training rows: 356727
+Raw features: 78
+Classes: ['BENIGN' 'FTP-Patator' 'SSH-Patator']
+
+[2] Reconstructing duplicate groups...
+Unique training groups: 337450
+/home/kali/Network-Traffic-Detector/src/phase14_3_group_aware_random_forest.py:99: Pandas4Warning: The copy keyword is deprecated and will be removed in a future version. Copy-on-Write is active in pandas since 3.0 which utilizes a lazy copy mechanism that defers copies until necessary. Use .copy() to make an eager copy if necessary.
+  X_raw_train = X_raw_train.astype(np.float32, copy=False)
+Feature dtype: [dtype('float32')]
+
+[3] Creating 5 group-aware folds...
+
+=================================================================
+FOLD 1/5
+=================================================================
+Fit rows: 285381
+Validation rows: 71346
+Fit unique groups: 269857
+Validation unique groups: 67593
+Overlapping groups: 0
+
+Training Random Forest...
+Training time: 84.21 seconds
+Retained features: 68
+
+FOLD METRICS
+Accuracy:  0.999888
+Precision: 0.999961
+Recall:    0.997447
+F1-score:  0.998701
+
+Classification Report:
+              precision    recall  f1-score   support
+
+      BENIGN       1.00      1.00      1.00     69132
+ FTP-Patator       1.00      1.00      1.00      1270
+ SSH-Patator       1.00      0.99      1.00       944
+
+    accuracy                           1.00     71346
+   macro avg       1.00      1.00      1.00     71346
+weighted avg       1.00      1.00      1.00     71346
+
+Memory cleanup completed after Fold 1.
+
+=================================================================
+FOLD 2/5
+=================================================================
+Fit rows: 285381
+Validation rows: 71346
+Fit unique groups: 269853
+Validation unique groups: 67597
+Overlapping groups: 0
+
+Training Random Forest...
+Training time: 97.69 seconds
+Retained features: 68
+
+FOLD METRICS
+Accuracy:  0.999958
+Precision: 0.999986
+Recall:    0.999031
+F1-score:  0.999508
+
+Classification Report:
+              precision    recall  f1-score   support
+
+      BENIGN       1.00      1.00      1.00     69132
+ FTP-Patator       1.00      1.00      1.00      1270
+ SSH-Patator       1.00      1.00      1.00       944
+
+    accuracy                           1.00     71346
+   macro avg       1.00      1.00      1.00     71346
+weighted avg       1.00      1.00      1.00     71346
+
+Memory cleanup completed after Fold 2.
+
+=================================================================
+FOLD 3/5
+=================================================================
+Fit rows: 285382
+Validation rows: 71345
+Fit unique groups: 269950
+Validation unique groups: 67500
+Overlapping groups: 0
+
+Training Random Forest...
+Training time: 98.29 seconds
+Retained features: 68
+
+FOLD METRICS
+Accuracy:  0.999972
+Precision: 0.999990
+Recall:    0.999384
+F1-score:  0.999687
+
+Classification Report:
+              precision    recall  f1-score   support
+
+      BENIGN       1.00      1.00      1.00     69132
+ FTP-Patator       1.00      1.00      1.00      1270
+ SSH-Patator       1.00      1.00      1.00       943
+
+    accuracy                           1.00     71345
+   macro avg       1.00      1.00      1.00     71345
+weighted avg       1.00      1.00      1.00     71345
+
+Memory cleanup completed after Fold 3.
+
+=================================================================
+FOLD 4/5
+=================================================================
+Fit rows: 285382
+Validation rows: 71345
+Fit unique groups: 269852
+Validation unique groups: 67598
+Overlapping groups: 0
+
+Training Random Forest...
+Training time: 95.96 seconds
+Retained features: 68
+
+FOLD METRICS
+Accuracy:  0.999972
+Precision: 0.999990
+Recall:    0.999293
+F1-score:  0.999641
+
+Classification Report:
+              precision    recall  f1-score   support
+
+      BENIGN       1.00      1.00      1.00     69132
+ FTP-Patator       1.00      1.00      1.00      1270
+ SSH-Patator       1.00      1.00      1.00       943
+
+    accuracy                           1.00     71345
+   macro avg       1.00      1.00      1.00     71345
+weighted avg       1.00      1.00      1.00     71345
+
+Memory cleanup completed after Fold 4.
+
+=================================================================
+FOLD 5/5
+=================================================================
+Fit rows: 285382
+Validation rows: 71345
+Fit unique groups: 270288
+Validation unique groups: 67162
+Overlapping groups: 0
+
+Training Random Forest...
+Training time: 72.30 seconds
+Retained features: 68
+
+FOLD METRICS
+Accuracy:  0.999986
+Precision: 0.999995
+Recall:    0.999647
+F1-score:  0.999821
+
+Classification Report:
+              precision    recall  f1-score   support
+
+      BENIGN       1.00      1.00      1.00     69131
+ FTP-Patator       1.00      1.00      1.00      1270
+ SSH-Patator       1.00      1.00      1.00       944
+
+    accuracy                           1.00     71345
+   macro avg       1.00      1.00      1.00     71345
+weighted avg       1.00      1.00      1.00     71345
+
+Memory cleanup completed after Fold 5.
+
+======================================================================
+[5] AGGREGATE CROSS-VALIDATION RESULTS
+======================================================================
+
+Mean metrics:
+accuracy           0.999955
+precision_macro    0.999985
+recall_macro       0.998960
+f1_macro           0.999472
+dtype: float64
+
+Standard deviation:
+accuracy           0.000039
+precision_macro    0.000013
+recall_macro       0.000874
+f1_macro           0.000445
+dtype: float64
+
+Fold results:
+ fold  fit_rows  validation_rows  fit_unique_groups  validation_unique_groups  overlapping_groups  retained_features  training_time_seconds  accuracy  precision_macro  recall_macro  f1_macro
+    1    285381            71346             269857                     67593                   0                 68                 84.210  0.999888         0.999961      0.997447  0.998701
+    2    285381            71346             269853                     67597                   0                 68                 97.690  0.999958         0.999986      0.999031  0.999508
+    3    285382            71345             269950                     67500                   0                 68                 98.288  0.999972         0.999990      0.999384  0.999687
+    4    285382            71345             269852                     67598                   0                 68                 95.965  0.999972         0.999990      0.999293  0.999641
+    5    285382            71345             270288                     67162                   0                 68                 72.299  0.999986         0.999995      0.999647  0.999821
+
+[6] Generating aggregate classification report...
+
+Aggregate confusion matrix:
+                    Predicted_BENIGN  ...  Predicted_SSH-Patator
+Actual_BENIGN                 345659  ...                      0
+Actual_FTP-Patator                 5  ...                      0
+Actual_SSH-Patator                11  ...                   4707
+
+[3 rows x 3 columns]
+
+[7] Saving results...
+
+======================================================================
+PHASE 14.3 COMPLETED
+======================================================================
+
+Mean Accuracy: 0.999955
+Mean Precision: 0.999985
+Mean Recall: 0.99896
+Mean F1-score: 0.999472
+
+Group separation: PASSED
+
+Test set used: NO
+Preprocessing leakage: PREVENTED
+
+Saved files:
+results/robustness/phase14_3_fold_metrics.csv
+results/robustness/phase14_3_classification_report.csv
+results/robustness/phase14_3_oof_confusion_matrix.csv
+results/robustness/phase14_3_oof_confusion_matrix.png
+results/robustness/phase14_3_summary.json

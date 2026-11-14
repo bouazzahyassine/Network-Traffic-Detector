@@ -1,0 +1,203 @@
+Matplotlib is building the font cache; this may take a moment.
+===========================================================================
+PHASE 14.4 - DESTINATION PORT SENSITIVITY ANALYSIS
+===========================================================================
+
+[1] Loading dataset...
+Training rows: 356727
+Original features: 78
+Destination Port: Destination Port
+
+[2] Reconstructing duplicate groups WITHOUT Destination Port...
+Grouping features: 77
+Unique groups without Destination Port: 313286
+/home/kali/Network-Traffic-Detector/src/phase14_4_destination_port_sensitivity_corrected.py:113: Pandas4Warning: The copy keyword is deprecated and will be removed in a future version. Copy-on-Write is active in pandas since 3.0 which utilizes a lazy copy mechanism that defers copies until necessary. Use .copy() to make an eager copy if necessary.
+  X_raw_train = X_raw_train.astype(
+Classes: ['BENIGN' 'FTP-Patator' 'SSH-Patator']
+
+[3] Initializing StratifiedGroupKFold...
+
+[4] Starting 5-fold experiments...
+
+===========================================================================
+FOLD 1/5
+===========================================================================
+Fit rows: 285382
+Validation rows: 71345
+Overlapping groups: 0
+
+[MODEL A] WITH DESTINATION PORT
+Retained features: 68
+Training time: 66.21s
+Accuracy: 0.9999859836008129
+Precision: 0.9999951783759805
+Recall: 0.9997375328083989
+F1-score: 0.9998663038876344
+
+[MODEL B] WITHOUT DESTINATION PORT
+Retained features: 67
+Training time: 66.34s
+Accuracy: 0.9998738524073165
+Precision: 0.999956610404825
+Recall: 0.9973647514633311
+F1-score: 0.998657970362126
+
+Fold 1 completed.
+Memory cleanup completed.
+
+===========================================================================
+FOLD 2/5
+===========================================================================
+Fit rows: 285381
+Validation rows: 71346
+Overlapping groups: 0
+
+[MODEL A] WITH DESTINATION PORT
+Retained features: 68
+Training time: 64.28s
+Accuracy: 0.999957951391809
+Precision: 0.9999855355463948
+Recall: 0.999121958272165
+F1-score: 0.9995534463592687
+
+[MODEL B] WITHOUT DESTINATION PORT
+Retained features: 67
+Training time: 65.25s
+Accuracy: 0.9983741204832787
+Precision: 0.9969424362091154
+Recall: 0.9711474940305527
+F1-score: 0.9836082225726043
+
+Fold 2 completed.
+Memory cleanup completed.
+
+===========================================================================
+FOLD 3/5
+===========================================================================
+Fit rows: 285381
+Validation rows: 71346
+Overlapping groups: 0
+
+[MODEL A] WITH DESTINATION PORT
+Retained features: 68
+Training time: 63.24s
+Accuracy: 0.9999439351890785
+Precision: 0.9999807143408161
+Recall: 0.9987688509275324
+F1-score: 0.9993742010742207
+
+[MODEL B] WITHOUT DESTINATION PORT
+Retained features: 67
+Training time: 64.00s
+Accuracy: 0.999803773161775
+Precision: 0.9985530232104783
+Recall: 0.9969792057355455
+F1-score: 0.9977625347172167
+
+Fold 3 completed.
+Memory cleanup completed.
+
+===========================================================================
+FOLD 4/5
+===========================================================================
+Fit rows: 285382
+Validation rows: 71345
+Overlapping groups: 0
+
+[MODEL A] WITH DESTINATION PORT
+Retained features: 68
+Training time: 65.15s
+Accuracy: 0.9999299180040647
+Precision: 0.9999758929260203
+Recall: 0.9984157435828996
+F1-score: 0.999194768026812
+
+[MODEL B] WITHOUT DESTINATION PORT
+Retained features: 67
+Training time: 65.88s
+Accuracy: 0.9998458196089425
+Precision: 0.9996889074636962
+Recall: 0.9967360252492558
+F1-score: 0.9982076590590769
+
+Fold 4 completed.
+Memory cleanup completed.
+
+===========================================================================
+FOLD 5/5
+===========================================================================
+Fit rows: 285382
+Validation rows: 71345
+Overlapping groups: 0
+
+[MODEL A] WITH DESTINATION PORT
+Retained features: 68
+Training time: 63.17s
+Accuracy: 0.9999859836008129
+Precision: 0.9999951783759805
+Recall: 0.9996465182043125
+F1-score: 0.9998207545109609
+
+[MODEL B] WITHOUT DESTINATION PORT
+Retained features: 67
+Training time: 64.39s
+Accuracy: 0.9991730324479641
+Precision: 0.9869790144598726
+Recall: 0.996926239252506
+F1-score: 0.991826115415711
+
+Fold 5 completed.
+Memory cleanup completed.
+
+[5] Aggregating results...
+
+FINAL COMPARISON
+         metric  with_port_mean  with_port_std  without_port_mean  without_port_std  difference_without_minus_with
+       accuracy        0.999961       0.000025           0.999414          0.000650                      -0.000547
+precision_macro        0.999986       0.000009           0.996424          0.005412                      -0.003563
+   recall_macro        0.999138       0.000565           0.991831          0.011565                      -0.007307
+       f1_macro        0.999562       0.000287           0.994013          0.006447                      -0.005549
+
+[6] Generating confusion matrices...
+
+WITH DESTINATION PORT:
+                    Predicted_BENIGN  ...  Predicted_SSH-Patator
+Actual_BENIGN                 345659  ...                      0
+Actual_FTP-Patator                 7  ...                      0
+Actual_SSH-Patator                 7  ...                   4711
+
+[3 rows x 3 columns]
+
+WITHOUT DESTINATION PORT:
+                    Predicted_BENIGN  ...  Predicted_SSH-Patator
+Actual_BENIGN                 345593  ...                      2
+Actual_FTP-Patator               110  ...                      0
+Actual_SSH-Patator                33  ...                   4685
+
+[3 rows x 3 columns]
+
+[7] Saving results...
+
+===========================================================================
+PHASE 14.4 COMPLETED SUCCESSFULLY
+===========================================================================
+
+Group separation: PASSED
+Same folds: YES
+Test set used: NO
+Preprocessing leakage: PREVENTED
+
+Results directory: results/robustness/phase14_4_corrected
+
+Generated files:
+- phase14_4_classification_report_with_port.csv
+- phase14_4_classification_report_without_port.csv
+- phase14_4_comparison.csv
+- phase14_4_comparison.png
+- phase14_4_confusion_matrix_with_port.csv
+- phase14_4_confusion_matrix_without_port.csv
+- phase14_4_execution.log
+- phase14_4_fold_metrics.csv
+- phase14_4_summary.json
+
+PHASE 14.4 FINISHED.

@@ -1,0 +1,4 @@
+,Predicted_BENIGN,Predicted_FTP-Patator,Predicted_SSH-Patator
+Actual_BENIGN,345593,64,2
+Actual_FTP-Patator,110,6240,0
+Actual_SSH-Patator,33,0,4685

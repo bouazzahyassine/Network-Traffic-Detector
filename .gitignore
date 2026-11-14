@@ -1,4 +1,68 @@
+# ==========================================
+# PYTHON ENVIRONMENT
+# ==========================================
 .venv/
+venv/
 __pycache__/
-*.pyc
+*.py[cod]
+*.pyo
+
+# ==========================================
+# JUPYTER
+# ==========================================
 .ipynb_checkpoints/
+
+# ==========================================
+# SECRETS
+# ==========================================
+.env
+.env.*
+!.env.example
+.streamlit/secrets.toml
+
+# ==========================================
+# SYSTEM AND CACHE
+# ==========================================
+.DS_Store
+Thumbs.db
+.pytest_cache/
+.mypy_cache/
+
+# ==========================================
+# DATASETS AND GENERATED DATA
+# Keep all datasets locally
+# ==========================================
+data/
+
+# ==========================================
+# MODELS
+# Keep only the final application model
+# ==========================================
+models/*
+!models/random_forest_final_pipeline.pkl
+!models/random_forest_final_metadata.json
+
+# ==========================================
+# BACKUP AND OLD SCRIPTS
+# ==========================================
+*backup*
+*before*
+*_old.py
+
+# ==========================================
+# LOCAL ACCIDENTAL FILE
+# ==========================================
+/ults rapport -type f -size +10M -exec ls -lh {} ;
+
+
+# ==========================================
+# DETAILED DATA-DERIVED ANALYSIS FILES
+# Keep detailed row-level outputs locally
+# ==========================================
+results/eda/exact_duplicate_rows.csv
+results/error_analysis/isolation_forest_errors.csv
+results/error_analysis/isolation_forest_false_positives.csv
+results/error_analysis/isolation_forest_false_negatives.csv
+results/error_analysis/random_forest_errors.csv
+results/error_analysis/random_forest_false_positives.csv
+results/error_analysis/random_forest_false_negatives.csv

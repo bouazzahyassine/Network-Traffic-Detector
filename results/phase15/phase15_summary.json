@@ -1,0 +1,131 @@
+{
+  "phase": "15",
+  "title": "Model Comparison and Selection",
+  "dataset": "CIC-IDS2017 Tuesday Working Hours",
+  "random_forest_validation": {
+    "protocol": "5-fold StratifiedGroupKFold",
+    "same_folds_for_both_models": true,
+    "all_folds_group_separated": true,
+    "test_set_used_in_phase14_4": false,
+    "with_destination_port": {
+      "f1_macro_mean": 0.9995618947717793,
+      "f1_macro_std": 0.0002871217603353722,
+      "recall_macro_mean": 0.9991381207590617,
+      "mean_training_time_seconds": 64.4094
+    },
+    "without_destination_port": {
+      "f1_macro_mean": 0.9940125004253471,
+      "f1_macro_std": 0.006447320783343043,
+      "recall_macro_mean": 0.9918307431462383,
+      "mean_training_time_seconds": 65.1712
+    },
+    "paired_folds": [
+      {
+        "fold": 1,
+        "f1_with_port": 0.9998663038876344,
+        "f1_without_port": 0.998657970362126,
+        "f1_difference_without_minus_with": -0.0012083335255084204,
+        "recall_with_port": 0.9997375328083989,
+        "recall_without_port": 0.9973647514633311,
+        "training_time_with_port": 66.209,
+        "training_time_without_port": 66.342
+      },
+      {
+        "fold": 2,
+        "f1_with_port": 0.9995534463592687,
+        "f1_without_port": 0.9836082225726043,
+        "f1_difference_without_minus_with": -0.01594522378666441,
+        "recall_with_port": 0.999121958272165,
+        "recall_without_port": 0.9711474940305527,
+        "training_time_with_port": 64.281,
+        "training_time_without_port": 65.251
+      },
+      {
+        "fold": 3,
+        "f1_with_port": 0.9993742010742207,
+        "f1_without_port": 0.9977625347172167,
+        "f1_difference_without_minus_with": -0.001611666357004049,
+        "recall_with_port": 0.9987688509275324,
+        "recall_without_port": 0.9969792057355455,
+        "training_time_with_port": 63.245,
+        "training_time_without_port": 63.996
+      },
+      {
+        "fold": 4,
+        "f1_with_port": 0.999194768026812,
+        "f1_without_port": 0.9982076590590769,
+        "f1_difference_without_minus_with": -0.0009871089677350176,
+        "recall_with_port": 0.9984157435828996,
+        "recall_without_port": 0.9967360252492558,
+        "training_time_with_port": 65.146,
+        "training_time_without_port": 65.882
+      },
+      {
+        "fold": 5,
+        "f1_with_port": 0.9998207545109609,
+        "f1_without_port": 0.991826115415711,
+        "f1_difference_without_minus_with": -0.00799463909524989,
+        "recall_with_port": 0.9996465182043125,
+        "recall_without_port": 0.996926239252506,
+        "training_time_with_port": 63.166,
+        "training_time_without_port": 64.385
+      }
+    ],
+    "best_with_port_fold": 1
+  },
+  "phase14_3_reference": {
+    "f1_macro_mean": 0.999471751559784,
+    "recall_macro_mean": 0.9989604719795739
+  },
+  "isolation_forest_historical_evaluation": {
+    "evaluation_source": "Phase 13 - ancienne \u00e9valuation",
+    "evaluation_samples": 89182,
+    "task": "D\u00e9tection binaire BENIGN / ATTACK",
+    "accuracy": 0.6812585499316005,
+    "precision_attack": 0.0668782282839877,
+    "recall_attack": 0.7159378388146006,
+    "f1_attack": 0.12232925774978387,
+    "false_positives": 27640,
+    "false_negatives": 786,
+    "average_precision": 0.047763908714364034,
+    "threshold": -0.12381612590818225
+  },
+  "phase12_historical_results": {
+    "Random Forest Original": {
+      "accuracy": 0.9999887869749501,
+      "precision_macro": 0.9999961426896253,
+      "recall_macro": 0.9997172745264349,
+      "f1_macro": 0.999856648621166,
+      "evaluation_time_seconds": 0.96
+    },
+    "Random Forest Without Destination Port": {
+      "accuracy": 0.999450561772555,
+      "precision_macro": 0.999192530195903,
+      "recall_macro": 0.9872743274826755,
+      "f1_macro": 0.9931257051640835,
+      "training_time_seconds": 97.97
+    },
+    "Isolation Forest Optimized": {
+      "accuracy": 0.6812585499316005,
+      "precision_attack": 0.0668782282839877,
+      "recall_attack": 0.7159378388146006,
+      "f1_attack": 0.12232925774978387,
+      "training_time_seconds": 0.93,
+      "optimized_threshold": -0.12381612590818225,
+      "validation_f1_attack": 0.12210382617253589
+    }
+  },
+  "methodological_notes": [
+    "Random Forest is a 3-class supervised classifier.",
+    "Isolation Forest is evaluated as a binary anomaly detector.",
+    "Their F1 scores are not directly equivalent.",
+    "Phase 13 already used the test set for model evaluation.",
+    "Do not describe the test set as completely unseen.",
+    "Do not use historical test metrics to tune model parameters."
+  ],
+  "selection": {
+    "provisional_preference": "Random Forest with Destination Port",
+    "reason": "Higher mean group-validation F1-macro and recall-macro than the paired model without Destination Port.",
+    "caveat": "Destination Port importance and possible dataset-specific patterns must be discussed as limitations."
+  }
+}

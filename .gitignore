@@ -1,68 +1,43 @@
-# ==========================================
-# PYTHON ENVIRONMENT
-# ==========================================
+# Python environment
 .venv/
 venv/
 __pycache__/
 *.py[cod]
 *.pyo
 
-# ==========================================
-# JUPYTER
-# ==========================================
+# Jupyter
 .ipynb_checkpoints/
 
-# ==========================================
-# SECRETS
-# ==========================================
+# Secrets
 .env
 .env.*
 !.env.example
 .streamlit/secrets.toml
 
-# ==========================================
-# SYSTEM AND CACHE
-# ==========================================
-.DS_Store
-Thumbs.db
+# Cache
 .pytest_cache/
 .mypy_cache/
+.DS_Store
+Thumbs.db
 
-# ==========================================
-# DATASETS AND GENERATED DATA
-# Keep all datasets locally
-# ==========================================
+# Dataset and generated data
 data/
+results/
 
-# ==========================================
-# MODELS
-# Keep only the final application model
-# ==========================================
+# Keep only final model
 models/*
 !models/random_forest_final_pipeline.pkl
 !models/random_forest_final_metadata.json
 
-# ==========================================
-# BACKUP AND OLD SCRIPTS
-# ==========================================
+# Backups and experimental files
 *backup*
 *before*
 *_old.py
 
-# ==========================================
-# LOCAL ACCIDENTAL FILE
-# ==========================================
-/ults rapport -type f -size +10M -exec ls -lh {} ;
+# Local reports archive
+reports/
 
+# Accidental local file
+/ults rapport*
 
-# ==========================================
-# DETAILED DATA-DERIVED ANALYSIS FILES
-# Keep detailed row-level outputs locally
-# ==========================================
-results/eda/exact_duplicate_rows.csv
-results/error_analysis/isolation_forest_errors.csv
-results/error_analysis/isolation_forest_false_positives.csv
-results/error_analysis/isolation_forest_false_negatives.csv
-results/error_analysis/random_forest_errors.csv
-results/error_analysis/random_forest_false_positives.csv
-results/error_analysis/random_forest_false_negatives.csv
+verify_phase4.py
